@@ -1,5 +1,5 @@
 import './App.css';
-import Form from './Form';
+import Form from './Formpages/Form';
 function App() {
   return (
     <div className="App">
