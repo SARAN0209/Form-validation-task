@@ -41,18 +41,23 @@ const Form = () => {
         !validEmail.test(userData.email) ? setEmailErr(true) : setEmailErr(false);
         !validPassword.test(userData.password) ? setPwdError(true) : setPwdError(false);
         !validMobileNumber.test(userData.mobileNumber) ? setNumError(true) : setNumError(false);
-        if (!{ ...userData } || (nameErr === false && emailErr === false && pwdError === false && numError === false)) {
-            alert("Form not valid")
-
-        } else {
-            alert("Form valid successfully")
-            setUserData({
-                name: "",
-                email: "",
-                password: "",
-                mobileNumber: "",
-            })
-        }
+        const errKeys = Object.keys(userData).filter((key) => {
+            if (userData[key] === "" && key !== "id" && key !== "error") {
+              return key;
+            }
+          });
+  if (errKeys.length >= 1) {
+            alert("Please fill all Data");
+          }
+          else{
+      alert("valid successfull")
+    }
+    setUserData({
+    name: "",
+    email: "",
+    password: "",
+    mobileNumber: "",
+    })
     }
 
 
